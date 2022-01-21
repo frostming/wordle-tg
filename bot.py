@@ -86,10 +86,10 @@ async def replier(event: events.NewMessage.Event) -> None:
         solution, trials = _chats[chat_id]
         trials += 1
         guess = event.message.message.strip().lower()
-        if guess not in WORD_LIST:
-            return await event.reply("Not in word list.")
-        elif len(guess) < len(solution):
+        if len(guess) < len(solution):
             return await event.reply("Not enough letters.")
+        elif guess not in WORD_LIST:
+            return await event.reply("Not in word list.")
 
         result = check_with_solution(guess, solution)
         message = f"{trials}/{MAX_TRIALS}: " + "".join(map(BLOCKS.get, result))
