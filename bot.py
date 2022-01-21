@@ -112,7 +112,7 @@ async def main():
     bot = TelegramClient(NAME, API_ID, API_HASH, proxy=proxy)
     if not os.path.exists("word_list.txt"):
         sys.exit("You must provide the word_list.txt file.")
-    with open("uniq-wordle.txt", encoding="utf-8") as f:
+    with open("word_list.txt", encoding="utf-8") as f:
         WORD_LIST[:] = [line.strip() for line in f]
 
     await bot.start(bot_token=TOKEN)
