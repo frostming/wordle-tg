@@ -86,8 +86,8 @@ async def replier(event: events.NewMessage.Event) -> None:
         solution, trials = _chats[chat_id]
         trials += 1
         guess = event.message.message.strip().lower()
-        if len(guess) < len(solution):
-            return await event.reply("Not enough letters.")
+        if len(guess) != len(solution):
+            return await event.reply("The word must be 5 letters.")
         elif guess not in WORD_LIST:
             return await event.reply("Not in word list.")
 
