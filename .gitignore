@@ -4,3 +4,4 @@ __pypackages__/
 /.vscode/
 *.session
 .env
+*.log*

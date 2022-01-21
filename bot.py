@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+from logging.handlers import RotatingFileHandler
 import os
 import random
 import sys
@@ -30,7 +31,7 @@ def setup_logger(level=logging.INFO):
     frm = (
         "%(levelname)-.3s [%(asctime)s] thr=%(thread)d %(name)s:%(lineno)d: %(message)s"
     )
-    handler = logging.StreamHandler()
+    handler = RotatingFileHandler("bot.log", maxBytes=10 * 1024 * 1024, backupCount=5)
     handler.setFormatter(logging.Formatter(frm))
     handler.setLevel(level)
     logger.setLevel(level)
@@ -117,7 +118,7 @@ async def main():
 
     await bot.start(bot_token=TOKEN)
     bot.add_event_handler(replier, events.NewMessage(incoming=True))
-
+    print("Starting bot...")
     try:
         await bot.run_until_disconnected()
     finally:
