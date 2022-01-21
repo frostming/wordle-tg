@@ -1,0 +1,29 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Frost Ming", email = "mianghong@gmail.com"},
+]
+dependencies = [
+    "telethon>=1.24.0",
+]
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+[project.urls]
+homepage = ""
+
+[project.optional-dependencies]
+[tool]
+[tool.pdm.scripts]
+_.env_file = ".env"
+start = "python bot.py"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "python-socks[asyncio]>=2.0.2",
+]
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"

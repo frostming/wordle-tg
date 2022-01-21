@@ -1,0 +1,6 @@
+__pycache__/
+.pdm.toml
+__pypackages__/
+/.vscode/
+*.session
+.env
